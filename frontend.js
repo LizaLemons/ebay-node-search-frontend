@@ -1,7 +1,7 @@
 // tell this angular module where app begins
 angular.module('eBayNycSearchApp', [])
 .controller('searchController', function($rootScope, $scope, $timeout, eBayRequestService) {
-  $scope.loading = false; 
+  $scope.loading = false;
   // gets chomp search terms from user & log this
   $scope.searchTerms = '';
   $scope.submit = function() {
@@ -27,7 +27,7 @@ angular.module('eBayNycSearchApp', [])
     getItems: function(searchTerms){
       return $http({
         method: 'GET',
-        url: 'http://localhost:8080/items',
+        url: 'https://ebay-node-search-backend.herokuapp.com/items',
         params: {
           'search': searchTerms
         }
