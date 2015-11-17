@@ -30,6 +30,17 @@
           <div class="col-xs-12 col-md-8 col-md-offset-2 inside-container">
             <div ng-app="eBayNycSearchApp">
               <div ng-controller="searchController">
+                <!-- caption -->
+                <div class="row">
+                  <div class="col-xs-12 caption-container">
+                    <p></p>
+                    <p>Find this project on <a href="https://github.com/lizalemons" target="_blank">GitHub</a></p>
+                    <p>Made by <a href="http://lizaramo.com" target="_blank">Liza Ramo</a></p>
+                    <p>This project was built with Node.js, the eBay API and Angular.js </p>
+                    <p>It returns to you the top 10 results in a 5 mile radius of 10009 (the East Village - the best neighborhood in NYC)</p>
+                  </div>
+                </div> <!-- end caption-container-->
+
                 <!-- search input -->
                 <div class="row">
                   <div class="col-xs-12 col-md-4 col-md-offset-4 search-div">
@@ -40,6 +51,7 @@
                     </form>
                   </div>
                 </div>
+
                 <!-- spinner -->
                 <div ng-show="loading" class="spinner">
                   <div class="rect1"></div>
@@ -75,6 +87,8 @@
         </div> <!-- end inside-container -->
       </div>
     </div> <!-- end main-container -->
+
+
   </div> <!-- end full-container -->
   <!-- scripts -->
   <script src="node_modules/angular/angular.js"></script>
