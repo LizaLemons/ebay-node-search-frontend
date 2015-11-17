@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>eBay NYC Search</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container-fluid full-container">
+    <!-- header -->
+    <div class="row">
+      <div class="col-xs-12 header-container">
+        <h1>
+          <span id="e">e</span>
+          <span id="b">b</span>
+          <span id="a">a</span>
+          <span id="y">y</span>
+        NYC Search</h1>
+      </div>
+    </div>
+
+    <!-- main -->
+    <div class="row">
+      <div class="col-xs-12 main-container">
+        <!-- inside -->
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-2 inside-container">
+            <div ng-app="eBayNycSearchApp">
+              <div ng-controller="searchController">
+                <!-- search input -->
+                <div class="row">
+                  <div class="col-xs-12 col-md-4 col-md-offset-4 search-div">
+                    <form ng-submit="submit()">
+                      <p class="search-for">Search for:{{text}}</p>
+                      <input type="text" ng-model="text" name="text" placeholder="Enter search terms" class="input-text-box"/>
+                      <input type="submit" id="submit" value="Submit" />
+                    </form>
+                  </div>
+                </div>
+                <!-- spinner -->
+                <div ng-show="loading" class="spinner">
+                  <div class="rect1"></div>
+                  <div class="rect2"></div>
+                  <div class="rect3"></div>
+                  <div class="rect4"></div>
+                  <div class="rect5"></div>
+                </div>
+
+                <!-- eBay results: -->
+                <div class="row">
+                  <div ng-repeat="result in searchResults" class="ebay-result col-xs-12">
+                    <div class="row">
+                      <div class="col-xs-10 col-xs-offset-1">
+                        <div class="row">
+                          <div class="col-xs-12 col-md-3">
+                            <img ng-src="{{result.galleryURL[0]}}" alt="">
+                          </div>
+                          <div class="col-xs-12 col-md-9">
+                            <p>{{result.title[0]}}</p>
+                            <p>Ships from: {{result.location[0]}}</p>
+                            <a ng-href="{{result.viewItemURL[0]}}">See this item on eBay</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div> <!-- end inside-container -->
+      </div>
+    </div> <!-- end main-container -->
+  </div> <!-- end full-container -->
+  <!-- scripts -->
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="frontend.js"></script>
+</body>
+</html>
